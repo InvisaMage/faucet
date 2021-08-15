@@ -48,7 +48,7 @@ Based on https://github.com/othneildrew/Best-README-Template
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://invisamage.com/faucet)
+[![Product Name Screenshot][product-screenshot]](https://invisamage.com/faucet)
 
 Faucet is a script which allows you to easily manage a [Waterfall](https://github.com/PaperMC/Waterfall) [Minecraft](https://www.minecraft.net/en-us) server.
 
@@ -171,4 +171,4 @@ Project Link: [https://github.com/InvisaMage/faucet](https://github.com/InvisaMa
 [issues-url]: https://github.com/InvisaMage/faucet/issues
 [license-shield]: https://img.shields.io/github/license/InvisaMage/faucet
 [license-url]: https://github.com/InvisaMage/faucet/blob/main/LICENSE.md
-[product-screenshot]: images/screensho.gif
+[product-screenshot]: images/screenshot.gif
