@@ -15,7 +15,7 @@ BBLUE='\e[0;34m\e[1m'
 BWHITE='\e[97m'
 YELLOW='\e[93m'
 TAG="${BBLUE}[Faucet]${RESET} "
-VER="v0.0.1-alpha"
+VER="v0.0.2-alpha"
 
 echo -e ${BBLUE} "  ______                   _   ";
 echo -e ${BBLUE} " |  ____|                 | |  ";
@@ -33,14 +33,14 @@ echo -e "";
 createConfig() {
 cat >> faucet.conf <<'EOL'
 # Faucet - Easily manage a Waterfall server
-# Config Version: v0.0.1-alpha
+# Config Version: v0.0.2-alpha
 # Tested on Debian/Ubuntu systems and WSL: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 # View the requirements in the README.md file
 # Customize this to your liking
 
 #General
 #Faucet Version
-#Avialable versions: https://papermc.io/api/v1/waterfall
+#Avialable versions: https://papermc.io/api/v2/projects/waterfall
 #!!!Ensure the version actually exists!!!
 #When changing major and minor versions, delete .ft_current_build.txt
 version="1.17"
@@ -149,7 +149,7 @@ startLoop() {
 
 #Get latest build from Waterfall API
 buildDownload() {
-    curl -o waterfall.jar "https://papermc.io/api/v1/waterfall/${version}/latest/download"
+    curl -o waterfall.jar "https://papermc.io/api/v2/projects/waterfall/versions/${version}/builds/${latest_build}/downloads/waterfall-${version}-${latest_build}.jar"
 	echo -e  $latest_build > .ft_current_build.txt
 	echo -e  "${TAG}Downloaded latest Waterfall build"
 }
@@ -218,7 +218,7 @@ else
 fi
 
 #Get latest build information from Waterfall API
-latest_build=$(curl -s https://papermc.io/api/v1/waterfall/${version}/latest | jq -r '.build')
+latest_build=$(curl -s https://papermc.io/api/v2/projects/waterfall/versions/${version} | jq -r '.builds[-1]')
 echo -e  "${TAG}Got latest build info for Waterfall"
 
 #If current build is older than latest build, download latest build and save to file
